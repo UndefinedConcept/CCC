@@ -6,28 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Campus Coder Crew</title>
 
+    <script>
+        const pageTitle = "My Dynamic Page Title";
+    </script>
     <!-- Font: Inter -->
-    <link rel="expect" href="/fonts/InterVariable.woff2" as="font" crossorigin="" type="font/woff2">
-    <link rel="stylesheet" href="/fonts/inter.css" />
+    <link rel="preload" href="./fonts/InterVariable.woff2" as="font" crossorigin="" type="font/woff2">
+    <link rel="stylesheet" href="./fonts/inter.css" />
 
     <!-- Main CSS Styles and Theme JS-->
-    <link rel="preload" href="/css/style.css" as="style">
-    <link rel="stylesheet" href="/css/style.css" />
-    <link rel="preload" href="/css/toggles.css" as="style">
-    <link rel="stylesheet" href="/css/toggles.css">
+    <link rel="preload" href="./css/style.css" as="style">
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="preload" href="./css/toggles.css" as="style">
+    <link rel="stylesheet" href="./css/toggles.css">
 
     <!-- Optional Animation CSS (Disable in Development) -->
-    <link rel="preload" href="/css/waves.css" as="style">
-    <link rel="stylesheet" href="/css/waves.css" />
+    <link rel="preload" href="./css/waves.css" as="style">
+    <link rel="stylesheet" href="./css/waves.css" />
 
     <!-- Javascript only for accessibility -->
-    <script defer src="js/script.js"></script>
+    <script defer src="./js/script.js"></script>
 </head>
 
 <body>
     <header class="menu-wrapper">
         <div class="navBar side-padding">
-            <a href="/">Campus Coder Crew</a>
+            <a href="./">Campus Coder Crew</a>
             <!-- Menu Toggle Checkbox -->
             <label class="switch" title="Menu Toggle" id="toggle-menu-label">
                 <input type="checkbox" id="toggle-menu">
@@ -46,10 +49,10 @@
             </label>
         </div>
         <nav class="navMenu">
-            <a href="/events.html">Events</a>
-            <a href="/apply.html">Apply</a>
-            <a href="/crew.html">Crew</a>
-            <a href="/archive.html">Archive</a>
+            <a href="./events.html">Events</a>
+            <a href="./apply.html">Apply</a>
+            <a href="./crew.html">Crew</a>
+            <a href="./archive.html">Archive</a>
         </nav>
     </header>
     <section class="hero-section">
@@ -148,7 +151,7 @@
     <footer class="side-padding">
         <p>&copy; 2025 Campus Coder Crew</p>
     </footer>
-    <script src="js/theme.js"></script>
+    <script src="./js/theme.js"></script>
 </body>
 
 </html>

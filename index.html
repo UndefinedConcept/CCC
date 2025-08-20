@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Coder Crew</title>
+
+    <!-- Font: Inter -->
+    <link rel="expect" href="/fonts/InterVariable.woff2" as="font" crossorigin="" type="font/woff2">
+    <link rel="stylesheet" href="/fonts/inter.css" />
+
+    <!-- Main CSS Styles and Theme JS-->
+    <link rel="preload" href="/css/style.css" as="style">
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="preload" href="/css/toggles.css" as="style">
+    <link rel="stylesheet" href="/css/toggles.css">
+
+    <!-- Optional Animation CSS (Disable in Development) -->
+    <link rel="preload" href="/css/waves.css" as="style">
+    <link rel="stylesheet" href="/css/waves.css" />
+
+    <!-- Javascript only for accessibility -->
+    <script defer src="js/script.js"></script>
+</head>
+
+<body>
+    <header class="side-padding menu-wrapper">
+        <a href="/">Campus Coder Crew</a>
+        <nav>
+            <a href="/events.html">Events</a>
+            <a href="/apply.html">Apply</a>
+            <a href="/crew.html">Crew</a>
+            <a href="/archive.html">Archive</a>
+        </nav>
+        <div class="header-toggles">
+            <!-- Theme Toggle Checkbox -->
+            <label class="switch" title="Theme Toggle">
+                <input type="checkbox" id="toggle-theme">
+                <div class="icon-wrapper">
+                    <svg id="light-icon" class="unchecked" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                        viewBox="0 0 24 24">
+                        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"
+                            d="M12 4.5V3m0 18v-1.5m9-7.5h-1.5m-15 0H3m14.303-5.303l1.061-1.061M5.636 18.364l1.06-1.06m11.668 1.06l-1.06-1.06M6.696 6.696l-1.06-1.06M16 12a4 4 0 1 1-8 0a4 4 0 0 1 8 0z" />
+                    </svg>
+                    <svg id="dark-icon" class="checked" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                        viewBox="0 0 24 24">
+                        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2" d="M12 3a6 6 0 0 0 9 9a9 9 0 1 1-9-9" />
+                        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2" d="M18 4v4 m2 -2h-4">
+                            <animate attributeName="opacity" values="1;0.2;1" dur="4s" repeatCount="indefinite" />
+                        </path>
+                    </svg>
+                </div>
+            </label>
+
+            <!-- Menu Toggle Checkbox -->
+            <label class="switch" title="Menu Toggle" id="toggle-menu-label">
+                <input type="checkbox" id="toggle-menu">
+                <div class="icon-wrapper">
+                    <svg id="menu-open" class="unchecked" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                        viewBox="0 0 24 24">
+                        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                    <svg id="menu-close" class="checked" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                        viewBox="0 0 24 24">
+                        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"
+                            d="M6 18L18 6m0 12L6 6" />
+                    </svg>
+                </div>
+            </label>
+        </div>
+    </header>
+    <section class="hero-section">
+        <div class="side-padding">
+            <label id="hero-subheading">By Students, For Students</label>
+            <h1>Campus Coder Crew</h1>
+            <p>Empowering students to collaborate, innovate, and grow. Join our community of developers and build
+                websites for campus
+                groups</p>
+        </div>
+        <div>
+            <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+                <defs>
+                    <path id="gentle-wave"
+                        d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+                </defs>
+                <g class="wave-parallax">
+                    <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(from currentColor r g b / 0.6)" />
+                    <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(from currentColor r g b / 0.4)" />
+                    <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(from currentColor r g b / 0.2)" />
+                    <use xlink:href="#gentle-wave" x="48" y="7" fill="currentColor" />
+                </g>
+            </svg>
+        </div>
+    </section>
+    <main class="main-section side-padding">
+        <section id="about">
+            <h2>About Us</h2>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil facere temporibus, quam fugit, at
+                doloribus, fugiat sit illum quo laborum vitae adipisci est molestias autem culpa. A facilis voluptas
+                mollitia!
+            </p>
+        </section>
+        <section id="events">
+            <h2>Upcoming Events</h2>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil facere temporibus, quam fugit, at
+                doloribus, fugiat sit illum quo laborum vitae adipisci est molestias autem culpa. A facilis voluptas
+                mollitia!
+            </p>
+        </section>
+        <section id="take-part">
+            <div id="request-site">
+                <h2>Request Website</h2>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil facere temporibus, quam fugit, at
+                    doloribus, fugiat sit illum quo laborum vitae adipisci est molestias autem culpa. A facilis voluptas
+                    mollitia!
+                </p>
+            </div>
+            <div id="join-us">
+                <h2>Join Us</h2>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil facere temporibus, quam fugit, at
+                    doloribus, fugiat sit illum quo laborum vitae adipisci est molestias autem culpa. A facilis voluptas
+                    mollitia!
+                </p>
+            </div>
+        </section>
+        <section id="contact-us">
+            <h2>Contact Us</h2>
+            <p>
+                Have any questions? Reach out to us at campuscoderscrew@gmail.com
+            </p>
+        </section>
+    </main>
+    <footer class="side-padding">
+        <p>&copy; 2025 Campus Coder Crew</p>
+    </footer>
+    <script src="js/theme.js"></script>
+</body>
+
+</html>

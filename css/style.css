@@ -1,0 +1,208 @@
+/***************************************************************
+Base CSS =======================================================
+***************************************************************/
+:root {
+  /* [Var] Color Palette (Blue-Beige) [--b* or --a*] */
+  --ocean-color: hsl(204, 80%, 65%);
+  --sky-color: hsl(204, 90%, 90%);
+  /* [Var] Text (Minor Third 1.2 Scale Rounded Ratio) [--t*] */
+  --text-size-sm: 0.8rem;
+  --text-size-md: 1rem;
+  --text-size-lg: 1.2rem;
+  --text-size-title: 2.5rem;
+  /* [Fixed] Font (Inter Best Font)[--f*] */
+  font-family: "Inter", sans-serif;
+  font-feature-settings: "calt", "ss03", "cv02", "cv05", "cv11";
+  /* Make sure the scrolling is smooth */
+  scroll-behavior: smooth;
+}
+
+.dark-mode {
+  --ocean-color: hsl(204, 90%, 20%);
+  --sky-color: hsl(204, 20%, 12%);
+  --base-color: hsl(205, 80%, 90%);
+}
+
+@supports (font-variation-settings: normal) {
+  :root {
+    font-family: "InterVariable", sans-serif;
+  }
+}
+
+/* Html Body/Base Background */
+html {
+  min-width: calc(320px + 2rem);
+
+  .side-padding {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    min-width: 320px;
+  }
+}
+
+body {
+  background-color: var(--ocean-color);
+  font-size: var(--text-size-md);
+  color: var(--base-color);
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+}
+
+/* Text */
+h1 {
+  text-transform: capitalize;
+  font-size: var(--text-size-title);
+  font-weight: 800;
+  margin: 0;
+}
+
+h2 {
+  font-size: var(--text-size-lg);
+  font-weight: bold;
+  margin: 0;
+  padding: 0.5rem 0;
+}
+
+/* Text Margin and Color */
+p {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0.5rem 0;
+}
+
+a {
+  color: var(--base-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: rgb(from blue r g b);
+  }
+}
+
+/***************************************************************
+[ALL] Navigation Bar Design ====================================
+***************************************************************/
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 3rem;
+  /* TODO: NavBar: Change "green" to "var(--sky-color)" */
+  background-color: rgba(from var(--sky-color) r g b / 0.7);
+  backdrop-filter: blur(8px);
+  padding: 0;
+  z-index: 5;
+
+  p {
+    font-size: var(--text-size-md);
+    margin: 0;
+  }
+
+  /* Toggles */
+  .header-toggles {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+}
+
+@media all and (width < 600px) {
+  nav {
+    position: fixed;
+    top: 3rem;
+    right: 0;
+    width: 0;
+    display: flex;
+    text-align: right;
+    flex-direction: column;
+    overflow: hidden;
+    background-color: gray;
+    backdrop-filter: blur(8px);
+    transition: width 0.3s ease;
+
+    a {
+      padding: 0.5rem 1rem;
+      border-bottom: 1px solid darken(currentColor, 10%);
+    }
+  }
+
+  .menu-wrapper:has(#toggle-menu:checked) {
+    nav {
+      width: 7rem;
+    }
+  }
+}
+
+@media all and (width >=600px) {
+  #toggle-menu-label {
+    display: none;
+  }
+
+  nav {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    a:not(:first-child) {
+      margin-left: 1rem;
+    }
+  }
+}
+
+/***************************************************************
+[<1000px] Layout: Page Design (Main) ===========================
+***************************************************************/
+/* Hero Section Stuff */
+.hero-section {
+  width: 100%;
+  /* pt of 3rem to avoid overlap with fixed header */
+  padding-top: calc(3rem + 1rem);
+  padding-bottom: 0;
+  background-color: var(--sky-color);
+
+  #hero-subheading {
+    text-transform: capitalize;
+    font-weight: bold;
+  }
+
+  p {
+    padding-bottom: 2rem;
+  }
+}
+
+/* Main Section(s) Stuff */
+main {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+
+  section {
+    margin: 0;
+    padding-bottom: 2rem;
+  }
+}
+
+/* Waves from https://codepen.io/goodkatz/pen/LYPGxQz*/
+.waves {
+  color: var(--ocean-color);
+  position: relative;
+  width: 100%;
+  height: 30px;
+  /* Fix for safari gap */
+  margin-bottom: -8px;
+}
+
+/***************************************************************
+[>=1000px] Layout: Split-Screen Design =========================
+***************************************************************/
+
+@media all and (width >=1000px) {}

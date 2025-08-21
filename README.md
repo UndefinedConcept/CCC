@@ -1,2 +1,2 @@
-# Campus Coder Crew (beta)
-This website was developed to represent Campus Coder Crew.
+# Campus Coders Crew (beta)
+This website was developed to represent Campus Coders Crew.

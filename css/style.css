@@ -3,17 +3,21 @@ Base CSS =======================================================
 ***************************************************************/
 :root {
   /* [Var] Color Palette (Blue-Beige) [--b* or --a*] */
-  --color-ocean-light: hsl(204, 100%, 25%);
-  --color-ocean-dark: hsl(204, 95%, 15%);
-  --color-sky-light: hsl(200, 80%, 75%);
-  --color-sky-dark: hsl(208, 70%, 65%);
-  --color-sand-light: hsl(47, 60%, 95%);
-  --color-sand-dark: hsl(47, 45%, 80%);
+  --color-ocean-light: hsl(204, 90%, 25%);
+  --color-ocean-dark: hsl(204, 98%, 15%);
+  --color-sky-light: hsl(195, 80%, 90%);
+  --color-sky-dark: hsl(190, 85%, 80%);
+  --color-sand-light: hsl(47, 80%, 95%);
+  --color-sand-dark: hsl(47, 60%, 90%);
   /* [Var] Text (Minor Third 1.2 Scale Rounded Ratio) [--t*] */
   --text-size-sm: 0.8rem;
   --text-size-md: 1rem;
   --text-size-lg: 1.2rem;
+  --text-size-xlg: 1.6rem;
   --text-size-title: 2.5rem;
+  /* Others */
+  --wave-height: 20px;
+
   /* [Fixed] Font (Inter Best Font)[--f*] */
   font-family: "Inter", sans-serif;
   font-feature-settings: "calt", "ss03", "cv02", "cv05", "cv11";
@@ -39,7 +43,7 @@ html {
 }
 
 body {
-  background: var(--color-sky-light);
+  background: var(--color-sky-dark);
   font-size: var(--text-size-md);
   color: var(--color-ocean-dark);
   line-height: 1.5;
@@ -56,6 +60,13 @@ h1 {
 }
 
 h2 {
+  font-size: var(--text-size-xlg);
+  font-weight: bold;
+  margin: 0;
+  padding: 0.5rem 0;
+}
+
+h3 {
   font-size: var(--text-size-lg);
   font-weight: bold;
   margin: 0;
@@ -70,6 +81,7 @@ p {
 }
 
 a {
+  font-weight: 500;
   color: var(--base-color);
   text-decoration: none;
   transition: color 0.3s ease;
@@ -77,6 +89,10 @@ a {
   &:hover {
     color: rgb(from var(--color-ocean-light) r g b);
   }
+}
+
+span.inline-block {
+  display: inline-block;
 }
 
 /***************************************************************
@@ -96,18 +112,44 @@ a {
   border-bottom: hsl(from var(--color-sky-dark) h s l) solid 1px;
   backdrop-filter: blur(8px);
   z-index: 3;
+
+  .logo {
+    height: 2rem;
+    width: 2rem;
+    margin-bottom: -0.6rem;
+    margin-top: -0.4rem;
+  }
+
+  a {
+    font-weight: bold;
+  }
+}
+
+.navMenu {
+  position: fixed;
+  top: 0;
+  /* Same right as side-padding padding-right */
+  right: 1rem;
+  display: flex;
+  flex-direction: row;
+  z-index: 3;
+
+  a {
+    padding: 1rem;
+  }
+
+  a:hover {
+    background-color: var(--color-sky-light);
+  }
 }
 
 /* Mobile Version */
 @media all and (width < 600px) {
   .navMenu {
-    position: fixed;
     top: 3.5rem;
     /* Same right as side-padding padding-right */
     left: 0;
     right: 0;
-    display: flex;
-    flex-direction: row;
     justify-content: space-between;
     padding-left: 1rem;
     padding-right: 1rem;
@@ -116,16 +158,6 @@ a {
     backdrop-filter: blur(8px);
     height: 0;
     overflow-x: hidden;
-
-    a {
-      padding: 0.5rem 1rem;
-      transition: all 0.5s ease;
-    }
-
-    a:hover {
-      color: rgb(from var(--color-ocean-light) r g b);
-      background-color: var(--color-sky-light);
-    }
   }
 
   .menu-wrapper:has(#toggle-menu:checked) {
@@ -142,22 +174,6 @@ a {
   #toggle-menu-label {
     display: none;
   }
-
-  .navMenu {
-    position: fixed;
-    top: 0;
-    /* Same right as side-padding padding-right */
-    right: 1rem;
-    display: flex;
-    flex-direction: row;
-    gap: 1rem;
-    z-index: 3;
-
-    a {
-      padding-top: 1rem;
-      padding-bottom: 1rem;
-    }
-  }
 }
 
 /***************************************************************
@@ -167,9 +183,9 @@ a {
 .hero-section {
   width: 100%;
   /* pt of 3rem to avoid overlap with fixed header */
-  padding-top: calc(3rem + 65px);
+  padding-top: calc(3rem + 30px);
   padding-bottom: 0;
-  background: linear-gradient(to bottom, var(--color-sky-dark) 7rem, var(--color-sky-light));
+  background: linear-gradient(var(--color-sky-dark), var(--color-sky-light));
 
   /* Ensure hero-text is above waves-background */
   .hero-text {
@@ -184,7 +200,7 @@ a {
 
   p {
     padding-bottom: 2rem;
-    width: min(440px, 100%);
+    width: min(450px, 100%);
     min-width: 320px;
   }
 }
@@ -202,7 +218,9 @@ a {
   color: var(--color-ocean-light);
   position: relative;
   width: 100%;
-  height: 30px;
+  height: var(--wave-height);
+  background-image: linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 100%), linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) var(--wave-height), var(--color-ocean-light) var(--wave-height), var(--color-ocean-light) 100%);
+  padding-bottom: 2rem;
   /* Fix for safari gap */
   margin-bottom: -8px;
 }
@@ -213,40 +231,83 @@ a {
   aspect-ratio: 36 / 42;
   bottom: 0;
   align-self: flex-end;
-  margin-right: 4px;
-  margin-bottom: -27px;
+  margin-right: 8px;
+  margin-bottom: -18px;
   z-index: 0;
   animation: sailboat-wave 5s ease-in-out infinite;
+  transform-origin: 20% 20%;
 }
 
-/* move up and down 0.5rem and tilt/rotate a little */
-@keyframes sailboat-wave {
-  0% {
-    transform: translateY(0) rotate(-0.5deg);
-  }
-
-  50% {
-    transform: translateY(2px) rotate(0.5deg);
-  }
-
-  100% {
-    transform: translateY(0) rotate(-0.5deg);
-  }
-}
-
-/* Main Section(s) Stuff =================================== */
-main {
-  display: flex;
-  flex-direction: column;
+/* Other Section Stuff =================================== */
+section {
   margin: 0;
-  padding: 0;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+#about {
   background-color: var(--color-ocean-light);
   color: var(--color-sand-light);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  /* No padding-bottom for the curved svg background */
+  padding-bottom: 0;
 
-  section {
-    margin: 0;
-    padding-bottom: 2rem;
+  .goals {
+    margin: 1rem 0;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    div {
+      width: 8rem;
+      margin: 0 0.5rem;
+      margin-top: 1rem;
+    }
   }
+}
+
+.center-text {
+  text-align: center;
+  max-width: 780px;
+}
+
+.events-background {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-sand-dark);
+  color: var(--color-ocean-dark);
+  padding-top: 0;
+  padding-bottom: 0;
+  /* Fix for safari gap */
+  margin-bottom: -8px;
+}
+
+#events {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.curved-svg-background {
+  width: 100%;
+  height: 2rem;
+  min-width: 320px;
+}
+
+#take-part {
+  background-color: var(--color-sky-light);
+  color: var(--color-ocean-dark);
+}
+
+#contact-us {
+  background-color: var(--color-sky-dark);
+  color: var(--color-ocean-dark);
 }
 
 /***************************************************************

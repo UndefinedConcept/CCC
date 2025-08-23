@@ -17,7 +17,7 @@ Base CSS =======================================================
   --text-size-title: 2.5rem;
   /* Others */
   --wave-height: 20px;
-
+  --screen-side-padding: 2rem;
   /* [Fixed] Font (Inter Best Font)[--f*] */
   font-family: "Inter", sans-serif;
   font-feature-settings: "calt", "ss03", "cv02", "cv05", "cv11";
@@ -36,8 +36,8 @@ html {
   min-width: calc(320px + 2rem);
 
   .side-padding {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: var(--screen-side-padding);
+    padding-right: var(--screen-side-padding);
     min-width: 320px;
   }
 }
@@ -45,6 +45,7 @@ html {
 body {
   background: var(--color-sky-dark);
   font-size: var(--text-size-md);
+  font-weight: normal;
   color: var(--color-ocean-dark);
   line-height: 1.5;
   margin: 0;
@@ -55,7 +56,7 @@ body {
 h1 {
   text-transform: capitalize;
   font-size: var(--text-size-title);
-  font-weight: 800;
+  font-weight: bolder;
   margin: 0;
 }
 
@@ -70,7 +71,7 @@ h3 {
   font-size: var(--text-size-lg);
   font-weight: bold;
   margin: 0;
-  padding: 0.5rem 0;
+  padding: 0.5rem 0 0;
 }
 
 /* Text Margin and Color */
@@ -81,7 +82,7 @@ p {
 }
 
 a {
-  font-weight: 500;
+  font-weight: bold;
   color: var(--base-color);
   text-decoration: none;
   transition: color 0.3s ease;
@@ -93,6 +94,7 @@ a {
 
 span.inline-block {
   display: inline-block;
+  white-space: nowrap;
 }
 
 /***************************************************************
@@ -129,13 +131,13 @@ span.inline-block {
   position: fixed;
   top: 0;
   /* Same right as side-padding padding-right */
-  right: 1rem;
+  right: calc(var(--screen-side-padding) - 1rem);
   display: flex;
   flex-direction: row;
   z-index: 3;
 
   a {
-    padding: 1rem;
+    padding: 1rem 1rem;
   }
 
   a:hover {
@@ -145,14 +147,19 @@ span.inline-block {
 
 /* Mobile Version */
 @media all and (width < 600px) {
+  :root {
+    /* TODO: move to its only css file */
+    --screen-side-padding: 1rem;
+  }
+
   .navMenu {
     top: 3.5rem;
     /* Same right as side-padding padding-right */
     left: 0;
     right: 0;
     justify-content: space-between;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: var(--screen-side-padding);
+    padding-right: var(--screen-side-padding);
     z-index: 3;
     background-color: hsla(from var(--color-sky-dark) h s l / 0.7);
     backdrop-filter: blur(8px);
@@ -163,9 +170,19 @@ span.inline-block {
   .menu-wrapper:has(#toggle-menu:checked) {
     .navMenu {
       height: auto;
-      border-top: gray solid 1px;
-      border-bottom: gray solid 1px;
+      border-top: var(--color-sky-dark) solid 1px;
+      border-bottom: var(--color-sky-dark) solid 1px;
     }
+  }
+
+  /* For Request Website Section */
+  .four-key-areas {
+    grid-template-areas:
+      "div1"
+      "div2"
+      "div3"
+      "div4"
+      "div5";
   }
 }
 
@@ -174,10 +191,20 @@ span.inline-block {
   #toggle-menu-label {
     display: none;
   }
+
+  /* For Request Website Section */
+  .four-key-areas {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "div1 div2"
+      "div3 div4"
+      "div5 div5";
+  }
 }
 
 /***************************************************************
-[<1000px] Layout: Page Design (Main) ===========================
+[ALL] Layout: Page Design (Main) ===============================
 ***************************************************************/
 /* Hero Section Stuff ======================================= */
 .hero-section {
@@ -273,34 +300,132 @@ section {
 
 .center-text {
   text-align: center;
+}
+
+p.center-text {
+  justify-self: center;
   max-width: 780px;
 }
 
-.events-background {
+#events {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: var(--color-sand-dark);
   color: var(--color-ocean-dark);
-  padding-top: 0;
-  padding-bottom: 0;
-  /* Fix for safari gap */
-  margin-bottom: -8px;
-}
-
-#events {
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
 
-.curved-svg-background {
+.curved-svg-divider {
   width: 100%;
   height: 2rem;
-  min-width: 320px;
+  /* Fix for safari gap */
+  margin-bottom: -8px;
 }
 
-#take-part {
+#request-website {
+  background-color: var(--color-sand-light);
+  color: var(--color-ocean-dark);
+
+  .four-key-areas {
+    display: grid;
+    max-width: 1200px;
+    align-self: center;
+    margin-left: auto;
+    margin-right: auto;
+
+    div:hover {
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  .div1 {
+    grid-area: div1;
+  }
+
+  .div2 {
+    grid-area: div2;
+  }
+
+  .div3 {
+    grid-area: div3;
+  }
+
+  .div4 {
+    grid-area: div4;
+  }
+
+  .div1,
+  .div2,
+  .div3,
+  .div4 {
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 0.2rem;
+  }
+
+  .div5 {
+    grid-area: div5;
+    border-radius: 8px;
+    padding: 1rem 1rem 1.5rem;
+    margin: 1rem 0.2rem 0.2rem;
+
+    background-color: var(--color-ocean-light);
+    color: var(--color-sand-light);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+  }
+
+  .div5::before {
+    /* rotating shark-circle */
+    content: "";
+    position: absolute;
+    width: 80%;
+    aspect-ratio: 1 / 1;
+    background-image: url("../assets/shark-circle.png");
+    background-size: 100% 100%;
+    animation: rotate 60s linear infinite;
+    z-index: -1;
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(360deg);
+  }
+
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+/* Button Styles */
+button {
+  background-color: var(--color-ocean-dark);
+  color: var(--color-sand-light);
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+
+  &:hover {
+    background-color: var(--color-sand-light);
+    color: var(--color-ocean-dark);
+  }
+}
+
+#join-us {
+  background-image: linear-gradient(var(--color-sky-light), var(--color-sky-dark));
   background-color: var(--color-sky-light);
   color: var(--color-ocean-dark);
 }
@@ -309,9 +434,3 @@ section {
   background-color: var(--color-sky-dark);
   color: var(--color-ocean-dark);
 }
-
-/***************************************************************
-[>=1000px] Layout: Split-Screen Design =========================
-***************************************************************/
-
-@media all and (width >=1000px) {}

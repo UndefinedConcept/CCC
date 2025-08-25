@@ -121,15 +121,15 @@
             </p>
             <div class="goals flex-center-row">
                 <div>
-                    <span class="index-goals-learning"></span>
+                    <span class="goals--learning"></span>
                     <h3>Learning</h3>
                 </div>
                 <div>
-                    <span class="index-goals-service"></span>
+                    <span class="goals--service"></span>
                     <h3>Service</h3>
                 </div>
                 <div>
-                    <span class="index-goals-opportunity"></span>
+                    <span class="goals--opportunity"></span>
                     <h3>Opportunity</h3>
                 </div>
             </div>
@@ -191,7 +191,10 @@
                 <div class="div5">
                     <h3>Want a Website?</h3>
                     <p>Please fill out the form below, and we’ll reach out!</p>
-                    <button> Request Form </button>
+                    <!-- link to form -->
+                    <a href="https://go.umd.edu/CCC-website-request">
+                        <button title="Google Form to Request Website">Request Form</button>
+                    </a>
                 </div>
             </div>
         </section>
@@ -205,10 +208,16 @@
                 d="M0 15.8592V5.70506V0.00053215H600V5.70506C557.164 5.92103 464.67 -6.68657 309.408 7.61195C154.145 21.9105 45.56 21.14 0 15.8592Z"
                 fill="hsl(47, 80%, 95%)" />
         </svg>
-        <section id="join-us" class="side-padding">
+        <section id="join-us" class="side-padding center-text">
             <h2>Want to Join?</h2>
-            <p>If you’re interested in becoming part of Campus Coders Crew, please fill out the form below!</p>
-            <button> Join Us </button>
+            <p>If you’re interested in becoming part of Campus Coders Crew, please fill out the form(s) below!</p>
+
+            <a href="https://go.umd.edu/ccc-developer-interest">
+                <button title="Google Form for Developer">Be a Developer</button>
+            </a>
+            <a href="https://go.umd.edu/ccc-committees-interest">
+                <button title="Google Form for Committee">Join a Committee</button>
+            </a>
             <br>
             <br>
             <h3>Frequently Asked Questions</h3>
@@ -217,37 +226,79 @@
                 <input type="radio" name="accordion" id="acc1" hidden>
                 <label class="accordion-question" for="acc1">Who can join?</label>
                 <div class="accordion-answer">
-                    <p>Anyone interested in software engineering and web development at UMD can join!</p>
+                    <p>
+                        Anyone can join! In addition to our development team, we also have Committees that allow members
+                        to gain experience with non-technical components that facilitate club functions. These
+                        committees
+                        include Marketing, Logistics, Human Resources, Quality Assurance, and more!
+                    </p>
                 </div>
 
                 <input type="radio" name="accordion" id="acc2" hidden>
                 <label class="accordion-question" for="acc2">What skill level do I need?</label>
                 <div class="accordion-answer">
-                    <p>All skill levels are welcome, from beginners to experienced coders.</p>
+                    <p>
+                        Anyone can join! In addition to our development team, we also have Committees that allow members
+                        to gain experience with
+                        non-technical components that facilitate club functions. These committees include Marketing,
+                        Logistics, Human Resources,
+                        Quality Assurance, and more!
+                    </p>
                 </div>
 
                 <input type="radio" name="accordion" id="acc3" hidden>
                 <label class="accordion-question" for="acc3">How are development teams formed?</label>
                 <div class="accordion-answer">
-                    <p>Teams are formed based on interests, skills, and project needs.</p>
+                    <p>
+                        Development teams are formed by our Human Resources (HR) committee. HR considers members’
+                        proficiencies and availability
+                        to match them to the appropriate team so that members are put in a development environment that
+                        has the appropriate
+                        pace. Can I choose a team?
+                    </p>
                 </div>
 
                 <input type="radio" name="accordion" id="acc4" hidden>
                 <label class="accordion-question" for="acc4">Can I choose a team?</label>
                 <div class="accordion-answer">
-                    <p>We do our best to match you with your preferred team or project.</p>
+                    <p>
+                        To ensure members are spread evenly across our teams, members cannot determine what team they
+                        are assigned to. However,
+                        if certain members wish to be on the same team, we will try to accommodate as much as possible.
+                        Additionally, while
+                        members cannot change their primary team, they can temporarily join multiple teams at once. For
+                        temporary assignments,
+                        members can choose where they are assigned to.
+                    </p>
                 </div>
 
                 <input type="radio" name="accordion" id="acc5" hidden>
                 <label class="accordion-question" for="acc5">What are the chances of being accepted?</label>
                 <div class="accordion-answer">
-                    <p>We welcome as many students as possible, space permitting!</p>
+                    <p>
+                        CCC is non-selective, meaning that everyone is accepted into our club. While Committees and
+                        Development Pods are
+                        non-selective, Development Teams screen members to ensure they have the appropriate skill level.
+                        However, we do not have
+                        a cap on our amount of developers, and we will accept all qualified candidates into Development
+                        Teams.
+                    </p>
                 </div>
 
                 <input type="radio" name="accordion" id="acc6" hidden>
                 <label class="accordion-question" for="acc6">Is there a time commitment expected?</label>
                 <div class="accordion-answer">
-                    <p>We recommend attending weekly meetings and contributing to your team’s project.</p>
+                    <p>
+                        We do not have a defined time commitment across the board; however, members should set down
+                        expectations with their Team
+                        Lead/Committee Heads. Members are expected to notify Human Resources when they need to take a
+                        break from the club or
+                        will be unavailable for certain times. Members are also expected to respond to communication
+                        within 72 hours. Some
+                        members spend 30 minutes per week on the club while others spend 10+. So long as members explain
+                        how involved they wish
+                        to be and follow through with whatever time commitment they indicate, they may be a club member.
+                    </p>
                 </div>
             </div>
         </section>
@@ -257,6 +308,20 @@
                 Have any questions? Reach out to us at <br> <a
                     href="mailto:campuscoderscrew@gmail.com">campuscoderscrew@gmail.com</a>
             </p>
+            <div class="socials">
+                <a href="https://www.instagram.com/umdccc/">
+                    <svg class="socials--instagram"><title>Instagram</title></svg>
+                </a>
+                <a href="https://go.umd.edu/ccc-join-discord">
+                    <svg class="socials--discord"><title>Discord</title></svg>
+                </a>
+                <a href="https://github.com/campuscoderscrew">
+                    <svg class="socials--github"><title>GitHub</title></svg>
+                </a>
+                <a href="https://www.linkedin.com/company/campus-coders-crew">
+                    <svg class="socials--linkedin"><title>LinkedIn</title></svg>
+                </a>
+            </div>
         </section>
     </main>
     <footer class="side-padding center-text">
